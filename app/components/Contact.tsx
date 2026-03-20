@@ -190,7 +190,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-body-sm font-medium">GitHub</p>
-                                        <p className="text-body-sm text-text-tertiary">@manojnaidu</p>
+                                        <p className="text-body-sm text-text-tertiary">@manojtamtam2000-afk</p>
                                     </div>
                                 </a>
 
@@ -207,7 +207,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-body-sm font-medium">LinkedIn</p>
-                                        <p className="text-body-sm text-text-tertiary">Manoj Naidu</p>
+                                        <p className="text-body-sm text-text-tertiary">Manoj Venkat Tamtam</p>
                                     </div>
                                 </a>
                             </div>

@@ -1,13 +1,13 @@
 export const SITE_CONFIG = {
-    name: "Manoj Naidu",
-    initials: "MN",
+    name: "Manoj Venkat Tamtam",
+    initials: "MVT",
     title: "Full Stack Developer | Microservices Architect",
     description: "Engineer who builds systems that scale. Specializing in distributed systems, microservices architecture, and modern full-stack development.",
-    url: "https://manojnaidu.dev",
-    email: "contact@manojnaidu.dev",
+    url: "https://manojtamtam.dev",
+    email: "manojtamtam2000@gmail.com",
     social: {
-        github: "https://github.com/manojnaidu",
-        linkedin: "https://linkedin.com/in/manojnaidu",
+        github: "https://github.com/manojtamtam2000-afk",
+        linkedin: "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BoyiPa7LBQM2RXavTkEcTyw%3D%3D",
     },
 } as const;
 
@@ -19,7 +19,7 @@ export const NAV_LINKS = [
 ] as const;
 
 export const HERO_CONTENT = {
-    headline: ["Manoj Naidu"],
+    headline: ["Manoj Venkat Tamtam"],
     taglines: [
         "Designing Scalable Systems.",
         "Building Modern Software.",
@@ -58,12 +58,14 @@ export const EXPERTISE_CARDS = [
 ] as const;
 
 export const ARCHITECTURE_NODES = [
-    { id: "gateway", label: "API Gateway", x: 50, y: 8, description: "Request routing & rate limiting" },
-    { id: "auth", label: "Auth Service", x: 15, y: 35, description: "JWT authentication & authorization" },
-    { id: "kafka", label: "Kafka Event Bus", x: 50, y: 35, description: "Asynchronous event streaming" },
-    { id: "content", label: "Content Service", x: 85, y: 35, description: "Course & material management" },
-    { id: "assignment", label: "Assignment Service", x: 25, y: 62, description: "Task & submission handling" },
-    { id: "mongodb", label: "MongoDB", x: 75, y: 62, description: "Document store & persistence" },
+    { id: "gateway", label: "API Gateway", x: 50, y: 5, description: "Request routing & rate limiting" },
+    { id: "auth", label: "Auth Service", x: 10, y: 30, description: "JWT authentication & authorization" },
+    { id: "kafka", label: "Kafka Event Bus", x: 50, y: 30, description: "Asynchronous event streaming" },
+    { id: "content", label: "Content Service", x: 90, y: 30, description: "Course & material management" },
+    { id: "notification", label: "Notification Service", x: 10, y: 58, description: "Email, push & in-app notifications" },
+    { id: "assignment", label: "Assignment Service", x: 50, y: 58, description: "Task & submission handling" },
+    { id: "worksheets", label: "Worksheets Module", x: 90, y: 58, description: "Interactive worksheet generation & grading" },
+    { id: "mongodb", label: "MongoDB", x: 50, y: 85, description: "Document store & persistence" },
 ] as const;
 
 export const ARCHITECTURE_CONNECTIONS = [
@@ -71,9 +73,14 @@ export const ARCHITECTURE_CONNECTIONS = [
     { from: "gateway", to: "kafka" },
     { from: "gateway", to: "content" },
     { from: "kafka", to: "assignment" },
+    { from: "kafka", to: "notification" },
+    { from: "kafka", to: "worksheets" },
     { from: "kafka", to: "mongodb" },
     { from: "auth", to: "assignment" },
     { from: "content", to: "mongodb" },
+    { from: "content", to: "worksheets" },
+    { from: "notification", to: "mongodb" },
+    { from: "worksheets", to: "mongodb" },
 ] as const;
 
 export const PROJECTS = [
@@ -81,11 +88,12 @@ export const PROJECTS = [
         id: "lms-platform",
         title: "LMS Microservices Platform",
         subtitle: "Enterprise Learning Management System",
-        description: "A distributed learning management system built on microservices architecture, handling real-time content delivery, assignment workflows, and user authentication across multiple services.",
+        description: "A distributed learning management system built on microservices architecture, featuring Content Service for course management, Notification Service for real-time alerts, and a Worksheets Module for interactive assessments — all orchestrated via event-driven communication across multiple services.",
         impact: [
             "Reduced response latency by 60% through event-driven communication",
             "Scaled to handle 10,000+ concurrent users with zero downtime",
             "Achieved 99.9% uptime with automated health monitoring",
+            "Built Worksheets Module supporting interactive worksheet generation & auto-grading",
         ],
         techStack: ["Spring Boot", "Kafka", "MongoDB", "Redis", "Docker", "React"],
         category: "Distributed Systems",
