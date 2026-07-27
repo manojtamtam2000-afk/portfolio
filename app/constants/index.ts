@@ -85,6 +85,23 @@ export const ARCHITECTURE_CONNECTIONS = [
 
 export const PROJECTS = [
     {
+        id: "bill-scan-rewards",
+        title: "Bill Scan Rewards Platform",
+        subtitle: "Full-Stack Fintech Application with AI-Powered OCR",
+        description: "A comprehensive bill-scanning rewards platform where users upload receipts, earn coins via AI-powered OCR validation (Google Gemini / Tesseract), and redeem them for real payouts via Razorpay. Features a React SPA with four role-based dashboards (User, Merchant, Support, Superadmin), a Node.js/Express backend with 25 Mongoose models and 10 domain services, real-time notifications via Socket.IO & Firebase Cloud Messaging, and a React Native mobile app.",
+        impact: [
+            "Built 25+ data models and 10 specialized services including OCR, wallet, and audit",
+            "Implemented AI-powered receipt parsing with Google Gemini for automated bill validation",
+            "Designed role-based access control with JWT httpOnly cookies, CSRF protection & OTP auth",
+            "Integrated Razorpay payment gateway for automated payout processing",
+            "Developed cross-platform solution with React web SPA and React Native mobile app",
+        ],
+        techStack: ["Node.js", "Express", "React", "MongoDB", "Socket.IO", "Gemini AI", "React Native", "Razorpay"],
+        category: "Full-Stack Platform",
+        image: "/images/bill-scan-rewards.png",
+        github: "https://github.com/tconsol/hsiwish",
+    },
+    {
         id: "lms-platform",
         title: "LMS Microservices Platform",
         subtitle: "Enterprise Learning Management System",
@@ -97,6 +114,7 @@ export const PROJECTS = [
         ],
         techStack: ["Spring Boot", "Kafka", "MongoDB", "Redis", "Docker", "React"],
         category: "Distributed Systems",
+        image: "/images/lms-platform.png",
     },
     {
         id: "realtime-analytics",
@@ -110,6 +128,7 @@ export const PROJECTS = [
         ],
         techStack: ["Node.js", "Kafka", "PostgreSQL", "Redis", "Next.js", "WebSockets"],
         category: "Data Engineering",
+        image: "/images/realtime-analytics.png",
     },
 ] as const;
 
