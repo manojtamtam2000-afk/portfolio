@@ -36,6 +36,34 @@ interface ProjectSectionProps {
     index: number;
 }
 
+function ServiceGlyph({ project }: { project: (typeof PROJECTS)[number] }) {
+    return (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8">
+            <div
+                className="absolute inset-0 opacity-60"
+                style={{
+                    backgroundImage: `linear-gradient(var(--surface-border) 1px, transparent 1px), linear-gradient(90deg, var(--surface-border) 1px, transparent 1px)`,
+                    backgroundSize: "28px 28px",
+                }}
+            />
+            <div className="relative icon-container w-20 h-20 !rounded-2xl">
+                <svg className="w-9 h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                </svg>
+            </div>
+            <div className="relative text-center">
+                <p className="text-sm font-mono text-text-secondary tracking-wide">{project.category}</p>
+                <p className="mt-1 text-body-sm text-text-tertiary">No public UI — backend service</p>
+            </div>
+            <div className="relative flex flex-wrap justify-center gap-2 max-w-xs">
+                {project.techStack.slice(0, 4).map((tech) => (
+                    <span key={tech} className="tech-tag !text-[10px]">{tech}</span>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 function ProjectSection({ project, index }: ProjectSectionProps) {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -122,13 +150,15 @@ function ProjectSection({ project, index }: ProjectSectionProps) {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative aspect-[4/3] rounded-2xl overflow-hidden group glass-card gradient-border p-0"
                 >
-                    {/* Project Screenshot */}
-                    {"image" in project && project.image && (
+                    {/* Project Screenshot or Service Glyph */}
+                    {"image" in project && project.image ? (
                         <img
                             src={project.image as string}
                             alt={`${project.title} dashboard screenshot`}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         />
+                    ) : (
+                        <ServiceGlyph project={project} />
                     )}
 
                     {/* Subtle gradient overlay for depth */}

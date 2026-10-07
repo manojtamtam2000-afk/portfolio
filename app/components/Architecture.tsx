@@ -142,31 +142,33 @@ export default function Architecture() {
 
                         {/* Architecture Nodes */}
                         {ARCHITECTURE_NODES.map((node, index) => (
-                            <motion.div
+                            <div
                                 key={node.id}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: 0.5 + index * 0.1,
-                                    ease: [0.16, 1, 0.3, 1],
-                                }}
                                 className="absolute group"
                                 style={{
-                                    left: `${node.x}%`,
+                                    left: `clamp(46px, ${node.x}%, calc(100% - 46px))`,
                                     top: `${node.y}%`,
                                     transform: "translate(-50%, -50%)",
                                 }}
                             >
-                                <div className="glass-card gradient-border px-4 py-3 md:px-6 md:py-4 text-center min-w-[100px] md:min-w-[140px] cursor-default hover:!transform hover:!translate-y-[-6px]">
-                                    <p className="text-xs md:text-sm font-medium text-text-primary whitespace-nowrap">
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                                    transition={{
+                                        duration: 0.6,
+                                        delay: 0.5 + index * 0.1,
+                                        ease: [0.16, 1, 0.3, 1],
+                                    }}
+                                    className="glass-card gradient-border px-2.5 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 text-center w-[84px] sm:w-[110px] md:min-w-[140px] md:w-auto cursor-default hover:-translate-y-1.5 transition-transform"
+                                >
+                                    <p className="text-[10px] sm:text-xs md:text-sm font-medium text-text-primary leading-tight md:whitespace-nowrap">
                                         {node.label}
                                     </p>
-                                    <p className="text-[10px] md:text-xs text-text-tertiary mt-1 hidden md:block">
+                                    <p className="text-[10px] text-text-tertiary mt-1 hidden md:block">
                                         {node.description}
                                     </p>
-                                </div>
-                            </motion.div>
+                                </motion.div>
+                            </div>
                         ))}
                     </div>
                 </motion.div>

@@ -7,14 +7,14 @@ export const SITE_CONFIG = {
     email: "manojtamtam2000@gmail.com",
     social: {
         github: "https://github.com/manojtamtam2000-afk",
-        linkedin: "https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BoyiPa7LBQM2RXavTkEcTyw%3D%3D",
+        linkedin: "https://www.linkedin.com/in/manoj-tamtam-303992299",
     },
 } as const;
 
 export const NAV_LINKS = [
+    { label: "About", href: "#about" },
     { label: "Work", href: "#work" },
     { label: "Architecture", href: "#architecture" },
-    { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -85,50 +85,20 @@ export const ARCHITECTURE_CONNECTIONS = [
 
 export const PROJECTS = [
     {
-        id: "bill-scan-rewards",
-        title: "Bill Scan Rewards Platform",
-        subtitle: "Full-Stack Fintech Application with AI-Powered OCR",
-        description: "A comprehensive bill-scanning rewards platform where users upload receipts, earn coins via AI-powered OCR validation (Google Gemini / Tesseract), and redeem them for real payouts via Razorpay. Features a React SPA with four role-based dashboards (User, Merchant, Support, Superadmin), a Node.js/Express backend with 25 Mongoose models and 10 domain services, real-time notifications via Socket.IO & Firebase Cloud Messaging, and a React Native mobile app.",
+        id: "customer-support-service",
+        title: "Customer Support Microservice",
+        subtitle: "Event-Driven Ticketing Service in a Microservices Ecosystem",
+        description: "A Spring Boot microservice handling the full support-ticket lifecycle — creation, SLA tracking, activity history, and resolution — built to run as part of a larger distributed system. Registers with Eureka for service discovery, talks to Auth, Content, Communication, Notification, and LMS services via OpenFeign, and publishes ticket events to Kafka for downstream consumers.",
         impact: [
-            "Built 25+ data models and 10 specialized services including OCR, wallet, and audit",
-            "Implemented AI-powered receipt parsing with Google Gemini for automated bill validation",
-            "Designed role-based access control with JWT httpOnly cookies, CSRF protection & OTP auth",
-            "Integrated Razorpay payment gateway for automated payout processing",
-            "Developed cross-platform solution with React web SPA and React Native mobile app",
+            "Built SLA breach scheduler that auto-escalates overdue tickets via scheduled jobs",
+            "Integrated Resilience4j circuit breakers around every inter-service Feign call",
+            "Published ticket lifecycle events to Kafka for async notification fan-out",
+            "Modeled ticket priority, status & type as domain enums with a clean service/mapper layering",
+            "Secured endpoints with JWT, backed by MongoDB persistence and Redis caching",
         ],
-        techStack: ["Node.js", "Express", "React", "MongoDB", "Socket.IO", "Gemini AI", "React Native", "Razorpay"],
-        category: "Full-Stack Platform",
-        image: "/images/bill-scan-rewards.png",
-        github: "https://github.com/tconsol/hsiwish",
-    },
-    {
-        id: "lms-platform",
-        title: "LMS Microservices Platform",
-        subtitle: "Enterprise Learning Management System",
-        description: "A distributed learning management system built on microservices architecture, featuring Content Service for course management, Notification Service for real-time alerts, and a Worksheets Module for interactive assessments — all orchestrated via event-driven communication across multiple services.",
-        impact: [
-            "Reduced response latency by 60% through event-driven communication",
-            "Scaled to handle 10,000+ concurrent users with zero downtime",
-            "Achieved 99.9% uptime with automated health monitoring",
-            "Built Worksheets Module supporting interactive worksheet generation & auto-grading",
-        ],
-        techStack: ["Spring Boot", "Kafka", "MongoDB", "Redis", "Docker", "React"],
-        category: "Distributed Systems",
-        image: "/images/lms-platform.png",
-    },
-    {
-        id: "realtime-analytics",
-        title: "Real-Time Analytics Engine",
-        subtitle: "High-Throughput Data Pipeline",
-        description: "A streaming analytics platform that processes millions of events per minute, providing real-time dashboards and actionable insights for business stakeholders.",
-        impact: [
-            "Processing 2M+ events per minute with sub-second latency",
-            "Reduced data pipeline costs by 40% through intelligent batching",
-            "Built self-healing mechanisms for automatic failure recovery",
-        ],
-        techStack: ["Node.js", "Kafka", "PostgreSQL", "Redis", "Next.js", "WebSockets"],
-        category: "Data Engineering",
-        image: "/images/realtime-analytics.png",
+        techStack: ["Spring Boot", "Kafka", "MongoDB", "Redis", "Eureka", "OpenFeign", "Resilience4j", "JWT"],
+        category: "Microservices",
+        github: "https://github.com/manojtamtam2000-afk/customer-support-service",
     },
 ] as const;
 
