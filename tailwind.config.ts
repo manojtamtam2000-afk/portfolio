@@ -24,6 +24,7 @@ const config: Config = {
                 accent: {
                     primary: "var(--accent-primary)",
                     secondary: "var(--accent-secondary)",
+                    tertiary: "var(--accent-tertiary)",
                     glow: "var(--accent-glow)",
                     "glow-strong": "var(--accent-glow-strong)",
                 },
@@ -31,6 +32,7 @@ const config: Config = {
             fontFamily: {
                 sans: ["var(--font-geist-sans)", "Inter", "system-ui", "sans-serif"],
                 mono: ["var(--font-geist-mono)", "monospace"],
+                display: ["var(--font-display)", "var(--font-geist-sans)", "sans-serif"],
             },
             fontSize: {
                 "display-xl": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "1.05", letterSpacing: "-0.03em" }],
